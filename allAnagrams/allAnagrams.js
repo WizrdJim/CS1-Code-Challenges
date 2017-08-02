@@ -11,3 +11,8 @@
   * const anagrams = allAnagrams('abc');
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
+
+const allAnagrams = (str) => {
+  const strg = str;
+  
+}
