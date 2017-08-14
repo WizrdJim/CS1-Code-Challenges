@@ -10,6 +10,20 @@
  *              ...etc...
  *                   */
 
-const rockPaperScissors = () => {
-	// TODO: your solution here
+const rockPaperScissors = (rounds = 3) => {
+	const outcomes = [];
+	const plays = ['rock', 'paper','scissors'];
+
+	const getOutcomes = (playedSoFar, roundsLeft) =>{
+		if(roundsLeft === 0) {
+			outcomes.push(playedSoFar);
+		} 
+		else {
+			for (let i = 0; i< plays.length; i++) {
+				getOutcomes(playedSoFar.concat(plays[i]), roundsLeft-1);
+			}
+		}
+	};
+	getOutcomes([], rounds)
+	return outcomes;
 };

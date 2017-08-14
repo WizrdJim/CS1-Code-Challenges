@@ -14,3 +14,18 @@
  *
  * Target time complexity: O(log(n))
  */
+
+const rotatedArraySearch = (arr, number) => {
+  let pivotZero = 0;
+  let pivotPlus = 1;
+  let result;
+  let high = array.length - 1;
+  let low = 0;
+  while(arr[pivotPlus] >= arr[pivotZero]) {
+    pivotPlus++
+    pivotZero++
+  }
+  if (number === arr[pivotZero]) {
+    return pivotZero;
+  } else if
+};

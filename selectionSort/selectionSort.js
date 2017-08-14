@@ -7,5 +7,16 @@
  */
 
 const selectionSort = (arr) => {
-
+  const ret = Array.from(arr);
+  let minIndex;
+  for (let i = 0; i < ret.length; ++i) {
+    minIndex= i;
+    for (let j = i; j < ret.length; ++j) {
+        if (ret[j] < ret[minIndex]) {
+          minIndex= j;
+        }
+    }
+    [ret[i], ret[minIndex]] = [ret[minIndex], ret[i]];
+  }
+  return ret;
 };

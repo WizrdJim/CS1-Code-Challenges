@@ -38,3 +38,10 @@
  *
  *
  */
+const parallel = (arr, cb) => {
+  const arr2 = arr;
+  for (let i=0; i< arr.length; i++) {
+    arr2[i] = cb(i);
+  }
+  return arr2;
+}
