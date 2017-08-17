@@ -39,19 +39,39 @@ class LRUCacheItem {
 
 class LRUCache {
   constructor(limit = 10) {
-    
+    this.limit = limit;
+    this.size = size;
+    this.list = new List;
+    this.storage = {};
   }
 
   size() {
-
+    return this.size;
   }
 
   get(key) {
-
+    const node = this.storage[key];
+    if (node) {
+      this.list.moveToEnd(node);
+      return node.val.val;
+    } else {
+      return null;
+    }
   }
 
   set(key, val) {
-
+    if (node) {
+      node.val.val = val;
+      this.list.moveToEnd(node);
+    }
+    if (this.size === this.limit) {
+      delete this.storage[this.list.head.val.key]
+      this.list.shift();
+      this.size--;
+    }
+    this.list.push({ key, val });
+    this.storage[key] = this.list.tail;
+    this.size++;
   }
 }
 
@@ -65,6 +85,21 @@ class ListNode {
     this.prev = prev || null;
     this.val = val;
     this.next = next || null;
+  }
+  insertAfter(val) {
+    const next = this.next;
+    this.next = new ListNode(this, val, next);
+    if (next) next.prev = this.next;
+  }
+  insertBefore(val) {
+    const prev = this.prev;
+    this.prev = new ListNode(prev, val, this);
+    if (prev) prev.next = this.prev;
+  }
+
+  delete() {
+    if (this.prev) this.prev.next = this.next;
+    if (this.next) this.next.prev = this.prev;
   }
 }
 
@@ -158,23 +193,8 @@ class List {
     }
     return result;
   }
-
+}
   // Insert a value right after the node.
-  insertAfter(val) {
-    const next = this.next;
-    this.next = new ListNode(this, val, next);
-    if (next) next.prev = this.next;
-  }
-
   // Insert a value right before the node.
-  insertBefore(val) {
-    const prev = this.prev;
-    this.prev = new ListNode(prev, val, this);
-    if (prev) prev.next = this.prev;
-  }
 
-  delete() {
-    if (this.prev) this.prev.next = this.next;
-    if (this.next) this.next.prev = this.prev;
-  }
 

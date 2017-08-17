@@ -5,3 +5,7 @@
  * SetOfStacks.push() and SetOfStacks.pop() should behave identically to a single stack
  * (that is, pop( ) should return the same values as it would if there were just a single stack).
  */
+
+ class StackOfPlates {
+   
+ }

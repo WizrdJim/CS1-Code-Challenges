@@ -30,3 +30,35 @@ const makeBoard = (n) => {
 };
 
 // write your code here for t
+
+const robotPaths = (n) => {
+  const newBoard = makeBoard(n);
+  let solutions = 0;
+  const recursion = (r, c) => {
+    newBoard.toggle(r, c);
+
+    if (r === n-1 && c === n - 1) {
+      solutions ++;
+      newBoard.toggle(r, c);
+      return;
+    }
+    if (r - 1 >= 0 && !newBoard.hasBeenVisited(r - 1, c)) {
+      recursion(r - 1, c);
+    }
+    if (c + 1 < n && !newBoard.hasBeenVisited(r, c + 1)) {
+      recursion(r, c+1);
+    }
+    if (r + 1 < n && !newBoard.hasBeenVisited(r + 1, c)) {
+      recursion(r + 1, c);
+    }
+    if (c - 1 >= 0 && !newBoard.hasBeenVisited(r, c -1)) {
+      recursion(r, c -1);
+    }
+    newBoard.toggle(r, c);
+  } 
+  recursion(0, 0);
+
+  return solutions;
+}
+
+robotPaths(5);
