@@ -7,3 +7,15 @@
  * Returns: 'aeiou'
 */
 
+const commonChars = (str1, str2) => {
+  const primaryString = str1.split('');
+  const secondaryString = str2.split('');
+  const primarySet = new Set(primaryString);
+
+  const result = secondaryString.map((char) => {
+    if (primarySet.has(char)) {
+      return char;
+    }
+  })
+  return result;
+}

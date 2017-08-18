@@ -6,6 +6,18 @@
  * (that is, pop( ) should return the same values as it would if there were just a single stack).
  */
 
- class StackOfPlates {
-   
- }
+class StackOfPlates {
+  constructor(n) {
+    this.stack = [];
+    this.limit = n;
+    this.size = 0;
+  }
+  pusH = (n) => {
+    if (!this.stack[0]){
+      this.stack.push([n]);
+    }
+    if (this.stack[size].length = this.limit) {
+      this.stack.push([])
+    }
+  }
+}
