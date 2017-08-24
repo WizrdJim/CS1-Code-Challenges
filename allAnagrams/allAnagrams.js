@@ -13,6 +13,6 @@
   */
 
 const allAnagrams = (str) => {
-  const strg = str;
+  
   
 }
